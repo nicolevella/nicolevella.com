@@ -1,4 +1,4 @@
-# nicolevella.com
+# Hi, I'm Nicole.
 
 I use GitLab now.
 
