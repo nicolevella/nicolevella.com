@@ -4,30 +4,30 @@ import { Clouds } from '@react-three/drei'
 import Cloud from './Puff'
 import Pointer from './Pointer'
 
-let bgColor = "red"
+let cloudColor = "red"
 root.classList.add('sunrise')
 
 // const hour = new Date().getHours();
 // if (hour <= 5) {
 //     root.classList.add('night')
 //     contact.classList.add('night')
-//     bgColor = 'black'
+//     cloudColor = 'black'
 // } else if (hour <= 8) {
 //     root.classList.add('sunrise')
-//     bgColor = 'red'
+//     cloudColor = 'red'
 // } else if (hour <= 12) {
 //     root.classList.add('morning')
-//     bgColor = 'purple'
+//     cloudColor = 'purple'
 // } else if (hour <= 18) {
 //     root.classList.add('afternoon')
-//     bgColor = 'white'
+//     cloudColor = 'white'
 // } else if (hour <= 21) {
 //     root.classList.add('sunset')
-//     bgColor = 'orange'
+//     cloudColor = 'orange'
 // } else {
 //     background.classList.add('night')
 //     contact.classList.add('night')
-//     bgColor = 'black'
+//     cloudColor = 'black'
 // }
 
 export default function Experience() {
@@ -50,7 +50,7 @@ export default function Experience() {
         />
 
         <directionalLight 
-            color={ bgColor }
+            color={ cloudColor }
             position={ [ 1, 2, 3 ] } 
             intensity={ 2.5 } 
         />
