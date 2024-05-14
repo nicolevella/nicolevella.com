@@ -1,7 +1,7 @@
 import { useRef } from 'react'
-import { Perf } from 'r3f-perf'
+// import { Perf } from 'r3f-perf'
 import { Clouds } from '@react-three/drei'
-import Cloud from './Puff'
+import Puff from './Puff'
 import Pointer from './Pointer'
 
 let cloudColor = "red"
@@ -40,7 +40,7 @@ export default function Experience() {
         <Pointer />
         <Clouds>
             <group ref={ ref } position={[0, 0, 0]}>
-                { [...Array(10)].map((item, index) => <Cloud key={index} />) }
+                { [...Array(10)].map((item, index) => <Puff key={index} />) }
             </group>
         </Clouds>
 
