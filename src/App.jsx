@@ -12,7 +12,7 @@ root.classList.add('sunrise')
 //     root.classList.add('night')
 //     contact.classList.add('night')
 //     cloudColor = 'black'
-// } else if (hour <= 8) {
+// } else if (hour <= 9) {
 //     root.classList.add('sunrise')
 //     cloudColor = 'red'
 // } else if (hour <= 12) {
