@@ -1,8 +1,7 @@
 {
-  "name": "bouncy-cubes",
-  "private": true,
-  "description": "",
-  "author": "",
+  "name": "nicolevella.com",
+  "description": "My personal website.",
+  "author": "Nicole Vella",
   "license": "ISC",
   "version": "0.0.0",
   "type": "module",
