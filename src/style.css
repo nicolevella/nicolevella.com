@@ -11,14 +11,39 @@ html, body {
 }
 
 #root {
-    background: linear-gradient(to bottom, #82addb 0%,#ebb2b1 100%); 
-    /* background: linear-gradient(to bottom, #90dffe 0%,#38a3d1 100%);  */
+  /* background: linear-gradient(to bottom, #82addb 0%,#ebb2b1 100%); 
+  background: linear-gradient(to bottom, #94c5f8 1%,#a6e6ff 70%,#b1b5ea 100%); */
+  /* background: linear-gradient(to bottom, #90dffe 0%,#38a3d1 100%); */
+  /* background: linear-gradient(to bottom, #154277 0%,#576e71 30%,#e1c45e 70%,#b26339 100%);  */
+  /* background: linear-gradient(to bottom, #020111 10%,#3a3a52 100%); */
+
     position: fixed;
     z-index: -1;
     top: 0;
     left: 0;
     width: 100vw;
     height: 100vh;
+}
+
+
+.sunrise { /* 6:00 to 8:00 */
+  background: linear-gradient(to bottom, #82addb 0%,#ebb2b1 100%); 
+}
+
+.morning { /* 8:00 to 12:00 */
+  background: linear-gradient(to bottom, #94c5f8 1%,#a6e6ff 70%,#b1b5ea 100%);
+}
+
+.afternoon { /* 12:00 to 18:00 */
+  background: linear-gradient(to bottom, #90dffe 0%,#38a3d1 100%);
+}
+
+.sunset { /* 18:00 to 22:00 */
+  background: linear-gradient(to bottom, #154277 0%,#576e71 30%,#e1c45e 70%,#b26339 100%); 
+}
+
+.night { /* 22:00 to 6:00 */
+  background: linear-gradient(to bottom, #020111 10%,#3a3a52 100%);
 }
 
 #contact {
@@ -30,6 +55,16 @@ html, body {
   top: 0;
   left: 0;
   mix-blend-mode: overlay;
+}
+
+#contact.night {
+  background: none;
+  mix-blend-mode: screen;
+}
+
+#contact.night a,
+#contact.night a:visited {
+  color: white;
 }
 
 ul {
