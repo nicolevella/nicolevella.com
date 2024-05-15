@@ -146,13 +146,13 @@ export default function App() {
 
         <directionalLight
             position={ [ 1, 2, 3 ] }
-            intensity={ 1.25 }
+            intensity={ 1.5 }
         />
 
         <directionalLight 
             color={ col }
             position={ [ 1, 2, 3 ] } 
-            intensity={ 12.5 } 
+            intensity={ 10.5 } 
         />
 
     </>
