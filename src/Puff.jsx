@@ -13,8 +13,8 @@ export default function Puff() {
         const pos = ref.current.position.x;
         if (pos > 20) ref.current.position.x = -20
         ref.current.position.x += delta * speed
-        ref.current.rotation.x += delta * 0.10
-        ref.current.rotation.z += delta * 0.15
+        ref.current.rotation.x += delta * (0.10 * (Math.random()-.5))
+        ref.current.rotation.z += delta * (0.15 * (Math.random()-.5))
     })
 
     return <Cloud 
