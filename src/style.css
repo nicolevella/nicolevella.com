@@ -43,6 +43,7 @@ html, body {
 .sky-gradient-20 { background: linear-gradient(to bottom, #071B26 0%,#071B26 30%,#8A3B12 80%,#240E03 100%); }
 .sky-gradient-21 { background: linear-gradient(to bottom, #010A10 30%,#59230B 80%,#2F1107 100%); }
 .sky-gradient-22 { background: linear-gradient(to bottom, #090401 50%,#4B1D06 100%); }
+.sky-gradient-22 { background: linear-gradient(to bottom, #00000c 80%,#150800 100%); }
 .sky-gradient-23 { background: linear-gradient(to bottom, #00000c 80%,#150800 100%); }
 
 #contact {
@@ -95,7 +96,7 @@ li.sub a:before {
   position: absolute;
   left: -100%;
   top: 0;
-  background: #ebb2b1;
+  background: yellow;
   z-index: 0;
   transition: all 0.15s ease-in-out;
 }
@@ -128,6 +129,6 @@ a:hover {
 li:hover a:before {
   left: 0;
   background: rgba(50,50,50,0.10);
-  border: 2px solid #ebb2b1;
+  border: 2px solid yellow;
   transform: translateY(-2px);
 }
