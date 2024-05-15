@@ -1,135 +1,133 @@
 import { useEffect, useRef, useState } from 'react'
 // import { Perf } from 'r3f-perf'
 import { Clouds } from '@react-three/drei'
+import { useFrame } from '@react-three/fiber'
 import Puff from './Puff'
 import Pointer from './Pointer'
-import { useFrame } from '@react-three/fiber'
 
-let cloudColor, currHour
+let shade, hour
 
 const setBackground = () => {
-    currHour = new Date().getHours()
-    // currHour = new Date().getMinutes() % 23
+    hour = new Date().getHours()
     contact.className = ''
     root.className = ''
-    root.classList.add('sky-gradient-' + currHour)
-    switch (currHour) {
+    root.classList.add('sky-gradient-' + hour)
+    switch (hour) {
         case 0:
             contact.classList.add('night')
-            cloudColor = '#00000c' 
+            shade = '#00000c'
             break;
         case 1:
             contact.classList.add('night')
-            cloudColor = '#191621' 
+            shade = '#191621'
             break;
         case 2:
             contact.classList.add('night')
-            cloudColor = '#20202c'             
+            shade = '#20202c'
             break;
         case 3:
             contact.classList.add('night')
-            cloudColor = '#3a3a52'         
+            shade = '#3a3a52'
             break;
         case 4:
             contact.classList.add('night')
-            cloudColor = '#515175'
+            shade = '#515175'
             break;
         case 5:
             contact.classList.add('day')
-            cloudColor = '#8a76ab'        
+            shade = '#8a76ab'
             break;
         case 6:
             contact.classList.add('day')
-            cloudColor = '#cd82a0' 
+            shade = '#cd82a0'
             break;
         case 7:
             contact.classList.add('day')
-            cloudColor = '#eab0d1'         
+            shade = '#eab0d1'
             break;
         case 8:
             contact.classList.add('day')
-            cloudColor = '#ebb2b1'     
+            shade = '#ebb2b1'
             break;
         case 9:
             contact.classList.add('day')
-            cloudColor = '#b1b5ea'     
+            shade = '#b1b5ea'
             break;
         case 10:
             contact.classList.add('day')
-            cloudColor = '#94dfff'  
+            shade = '#94ffff'
             break;
         case 11:
             contact.classList.add('day')
-            cloudColor = '#67d1fb'    
+            shade = '#9fffff'
             break;
         case 12:
             contact.classList.add('day')
-            cloudColor = '#38a3d1'      
+            shade = '#afffff'
             break;
         case 13:
             contact.classList.add('day')
-            cloudColor = '#246fa8'        
+            shade = '#ffffff'
             break;
         case 14:
             contact.classList.add('day')
-            cloudColor = '#1e528e'        
+            shade = '#afffff'
             break;
         case 15:
             contact.classList.add('day')
-            cloudColor = '#5b7983'        
+            shade = '#9fffff'
             break;
         case 16:
             contact.classList.add('day')
-            cloudColor = '#9da671'
+            shade = '#9da671'
             break;
         case 17:
             contact.classList.add('day')
-            cloudColor = '#e9ce5d'        
+            shade = '#e9ce5d'
             break;
         case 18:
-            contact.classList.add('night')
-            cloudColor = '#b26339'             
+            contact.classList.add('day')
+            shade = '#e1c45e'
             break;
         case 19:
             contact.classList.add('night')
-            cloudColor = '#B7490F'             
+            shade = '#89752D'
             break;
         case 20:
             contact.classList.add('night')
-            cloudColor = '#8A3B12'             
+            shade = '#8F3B12'
             break;
         case 21:
             contact.classList.add('night')
-            cloudColor = '#59230B'     
+            shade = '#59230B'
             break;
         case 22:
             contact.classList.add('night')
-            cloudColor = '#2d0f00'
+            shade = '#2d0f00'
             break;
         case 23:
             contact.classList.add('night')
-            cloudColor = '#150800'
+            shade = '#150800'
             break;
         default:
             contact.classList.add('night')
-            cloudColor = '#FFFFFF'
+            shade = '#FFFFFF'
     }
 }
 
 export default function App() {
     const ref = useRef()
-    const [col, setCol] = useState('')
+    const [cloudColor, setCloudColor] = useState('')
 
     useEffect(() => {
         setBackground()
-        setCol(cloudColor)
+        setCloudColor(shade)
     })
 
     useFrame((state, delta) => {
-        if (currHour!==new Date().getHours()) {
-        // if (currHour!==new Date().getMinutes() % 23) {
+        if (hour!==new Date().getHours()) {
             setBackground()
-            setCol(cloudColor)
+            setCloudColor(shade)
         } 
     })
 
@@ -145,15 +143,14 @@ export default function App() {
         </Clouds>
 
         <directionalLight
-            position={ [ 1, 2, 3 ] }
-            intensity={ 1.5 }
+            position={ [ 0, 2, 1 ] }
+            intensity={ 1.25 }
         />
 
         <directionalLight 
-            color={ col }
-            position={ [ 1, 2, 3 ] } 
+            color={ cloudColor }
+            position={ [ 0, -2, 1 ] } 
             intensity={ 10.5 } 
         />
-
     </>
 }
