@@ -95,7 +95,7 @@ const setBackground = () => {
             break;
         case 20:
             contact.classList.add('night')
-            shade = '#8F3B12'
+            shade = '#5F3B12'
             break;
         case 21:
             contact.classList.add('night')
@@ -117,18 +117,18 @@ const setBackground = () => {
 
 export default function App() {
     const ref = useRef()
-    const [cloudColor, setCloudColor] = useState('')
+    const [lightColor, setLightColor] = useState('')
 
     useEffect(() => {
         setBackground()
-        setCloudColor(shade)
+        setLightColor(shade)
     })
 
     useFrame((state, delta) => {
         if (hour!==new Date().getHours()) {
             setBackground()
-            setCloudColor(shade)
-        } 
+            setLightColor(shade)
+        }
     })
 
     return <>
@@ -144,11 +144,11 @@ export default function App() {
 
         <directionalLight
             position={ [ 0, 2, 1 ] }
-            intensity={ 1.25 }
+            intensity={ 2.25 }
         />
 
         <directionalLight 
-            color={ cloudColor }
+            color={ lightColor }
             position={ [ 0, -2, 1 ] } 
             intensity={ 10.5 } 
         />

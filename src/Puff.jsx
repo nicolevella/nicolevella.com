@@ -3,7 +3,7 @@ import { useFrame } from '@react-three/fiber'
 import { Cloud } from '@react-three/drei'
 
 const bounds = [0.5, 1.5, 2.5]
-
+// console.log(Cloud)
 export default function Puff() {
     const ref = useRef()
     const speed = Math.random() * .5
@@ -21,14 +21,14 @@ export default function Puff() {
                 ref={ ref } 
                 fade={ 40 } 
                 speed={ 0.2 } 
-                segments={ 20 } 
+                segments={ 10 } 
                 volume={ 4 } 
-                opacity={ 0.3 } 
+                opacity={ 0.3 }
                 bounds={ [boundary, boundary, boundary] }
                 position={[
                     (Math.random()-.5) * 30,
                     (Math.random()-.5) * 10 + 2,
-                    -0.5,
+                    (Math.random()-1.) * 5,
                 ]} 
             />
 }
