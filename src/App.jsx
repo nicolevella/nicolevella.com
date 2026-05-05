@@ -11,6 +11,7 @@ const setBackground = () => {
     hour = new Date().getHours()
     contact.className = ''
     root.className = ''
+    hour = 8
     root.classList.add('sky-gradient-' + hour)
     switch (hour) {
         case 0:

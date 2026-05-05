@@ -1,5 +1,6 @@
 import react from '@vitejs/plugin-react'
 import { transformWithEsbuild } from 'vite'
+import { resolve } from 'path'
 
 export default {
     root: 'src/',
@@ -34,6 +35,12 @@ export default {
     {
         outDir: '../dist', // Output in the dist/ folder
         emptyOutDir: true, // Empty the folder first
-        sourcemap: true // Add sourcemap
+        sourcemap: true, // Add sourcemap
+        rollupOptions: {
+            input: {
+                main: resolve(__dirname, 'src/index.html'),
+                motion: resolve(__dirname, 'src/motion-detecting-motion/index.html')
+            }
+        }
     },
 }
