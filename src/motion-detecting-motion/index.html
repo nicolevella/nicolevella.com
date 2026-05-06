@@ -31,7 +31,7 @@
         </div>
         <h3>2. Animate the grid.</h3>
         <div class="video-wrapper">
-            <video class="video displaced-animated" src="/videos/grid-animated.mp4" autoplay muted loop playsinline></video>
+            <video class="video displaced-animated" data-src="/videos/grid-animated.mp4" autoplay muted loop playsinline></video>
         </div>
         <h3>3. Sample each pixel in the grid texture and use it's brightness to offset the pixel.</h3>
         <div class="image-wrapper">
@@ -39,15 +39,15 @@
         </div>
         <h3>4. Animate the displaced grid.</h3>
         <div class="video-wrapper">
-            <video class="video displaced-animated" src="/videos/displaced-animated.mp4" autoplay muted loop playsinline></video>
+            <video class="video displaced-animated" data-src="/videos/displaced-animated.mp4" autoplay muted loop playsinline></video>
         </div>
         <h3>5. Detect motion using a webcam.</h3>
         <div class="video-wrapper">
-            <video class="video motion-detection" src="/videos/motion-detection.mp4" autoplay muted loop playsinline></video>
+            <video class="video motion-detection" data-src="/videos/motion-detection.mp4" autoplay muted loop playsinline></video>
         </div>
         <h3>6. Use the motion detection data to further displace the pixels in the grid.</h3>
         <div class="video-wrapper">
-            <video class="video final" src="/videos/final.mp4" autoplay muted loop playsinline></video>
+            <video class="video final" data-src="/videos/final.mp4" autoplay muted loop playsinline></video>
         </div>
         <p>&nbsp;</p>
         <p>&nbsp;</p>
@@ -57,7 +57,23 @@
         <p>&nbsp;</p>
     </div>
     <script>
-        // Show content once everything is loaded
+        // Lazy load videos as they approach the viewport
+        const videos = document.querySelectorAll('video[data-src]');
+        const videoObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const video = entry.target;
+                    video.src = video.dataset.src;
+                    video.load();
+                    video.play().catch(() => {});
+                    videoObserver.unobserve(video);
+                }
+            });
+        }, { rootMargin: '200px' });
+
+        videos.forEach(video => videoObserver.observe(video));
+
+        // Show content once everything except videos is loaded
         window.addEventListener('load', () => {
             document.body.classList.add('loaded');
         });
