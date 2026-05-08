@@ -39,7 +39,8 @@ export default {
         rollupOptions: {
             input: {
                 main: resolve(__dirname, 'src/index.html'),
-                motion: resolve(__dirname, 'src/motion-detecting-motion/index.html')
+                motion: resolve(__dirname, 'src/motion-detecting-motion/index.html'),
+                colorfield: resolve(__dirname, 'src/colorfield/index.html')
             }
         }
     },

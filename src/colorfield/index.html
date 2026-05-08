@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nicole Vella // Motion Detecting Motion</title>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GM0YQVYJP2"></script>
+    <script>window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'G-GM0YQVYJP2');</script>
+    <style>
+        body { opacity: 0; transition: opacity 0.3s ease-in; }
+        body.loaded { opacity: 1; }
+    </style>
+</head>
+<body>
+    <div id="root"></div>
+    <script type="module" src="/index.jsx"></script>
+    <div id="contact">
+        <ul loading="eager">
+            <li class="sub"><a href="/">nicolevella.com</a></li>
+        </ul>
+    </div>
+    <div id="content">
+        <h1>Colorfield</h1>
+        <p class="medium">(Custom Software, 2022)</p>
+        <p class="description">Multicoloured organic forms ebb and flow, working both as individuals and as a collective, in this exploration of community and diversity. Some colours and forms are also transparent, causing the creation of new hues and tones as one overlaps the other. Similarly, one may converge with another, becoming a singular unit, making Colourfield a metaphor for how a community operates, supports its members, and transforms across time and space. It demonstrates the meeting points, overlaps, and diverse individuals that transform and shape a community. As the colors and forms morph and move in all directions, some occasionaly come to a rest, allowing viewers to slow down and observe, offering a meditative and reflective space.</p>
+        <p class="description"><em>Colorfield</em> was a large format projection spanning 16' by 40'. It was also displayed on indoor and outdoor digital signage LED displays of various sizes. Everything you see was created with code (JavaScript and GLSL), by hand, without the use of any artificial intelligence, graphic, or video software.</p>
+
+        <h3>1. Draw a circle.</h3>
+        <div class="video-wrapper">
+            <video class="video displaced-animated" data-src="/videos/circle.mp4" autoplay muted loop playsinline></video>
+        </div>
+        <h3>2. Distort the circle using simplex noise.</h3>
+        <div class="video-wrapper">
+            <video class="video displaced-animated" data-src="/videos/circle-noise.mp4" autoplay muted loop playsinline></video>
+        </div>
+        <h3>3. Animate the distorted circle.</h3>
+        <div class="video-wrapper">
+            <video class="video displaced-animated" data-src="/videos/circle-noise-animated.mp4" autoplay muted loop playsinline></video>
+        </div>
+        <h3>4. Generate a color gradient and apply it to the distorted circle.</h3>
+        <div class="video-wrapper">
+            <video class="video displaced-animated" data-src="/videos/circle-noise-color.mp4" autoplay muted loop playsinline></video>
+        </div>
+        <h3>5. Repeat steps 1 through 4 to build layers, using blending modes to combine them.</h3>
+        <div class="video-wrapper">
+            <video class="video displaced-animated" data-src="/videos/colorfield-final.mp4" autoplay muted loop playsinline></video>
+        </div>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <h2>Installation Photos</h2>
+        <div class="image-wrapper">
+            <img class="image grid" src="/images/colorfield-1.jpg"  />
+        </div>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <div class="image-wrapper">
+            <img class="image grid" src="/images/colorfield-2.jpg"  />
+        </div>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+
+    </div>
+    <script>
+        // Lazy load videos as they approach the viewport
+        const videos = document.querySelectorAll('video[data-src]');
+        const videoObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const video = entry.target;
+                    video.src = video.dataset.src;
+                    video.load();
+                    video.play().catch(() => {});
+                    videoObserver.unobserve(video);
+                }
+            });
+        }, { rootMargin: '200px' });
+
+        videos.forEach(video => videoObserver.observe(video));
+
+        // Show content once everything except videos is loaded
+        window.addEventListener('load', () => {
+            document.body.classList.add('loaded');
+        });
+    </script>
+</body>
+</html>
