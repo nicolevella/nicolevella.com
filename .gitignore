@@ -1,0 +1,7 @@
+package-lock.json
+vendor
+vendor/*
+dist
+dist/*
+node_modules
+node_modules/*
